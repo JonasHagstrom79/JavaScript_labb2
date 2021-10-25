@@ -35,4 +35,86 @@ const news = [
  * Good luck :) 
  */
 
- console.log('js loaded!')
+//EX01
+document.querySelector("#ex01").textContent = 'done' 
+
+//EX02
+let myElement = document.querySelector(".ex02");
+myElement.style.color = "#ff0000";
+ 
+//EX03
+document.querySelector('blockquote').textContent = 'Solen skiner idag' 
+
+//EX04
+let listnode = document.createElement('LI') 
+let textnode = document.createTextNode('Milk')
+listnode.appendChild(textnode)
+document.getElementById("shopping-list").appendChild(listnode)
+
+//EX05
+let html = "<table border= '1|1'>"
+
+html+='<thead>'
+html+='<tr>'
+html+='<td id ="headline">'+'Headline' +'</td>'
+html+='<td>'+'Author' +'</td>'
+html+='<td>'+'Link' +'</td>'
+html+='<td id ="summary">'+'Summary' +'</td>'
+html+='</tr>'
+html+='<thead>'
+
+for(var i = 0; i < news.length; i++){
+    html+='<tr>';
+    html+='<td id ="test2">'+news[i].headline+'</td>';
+    html+='<td>'+news[i].author+'</td>';
+    html+='<td>'+news[i].href+'</td>';
+    html+='<td>'+news[i].summary+'</td>';
+    html+='</tr>';
+    
+}
+document.querySelector("#news").innerHTML = html
+const green = document.querySelector("#headline")
+green.style.color = 'green'
+const blue = document.querySelector("#summary")
+blue.style.color = 'blue'
+
+//EX06
+let clicks = document.querySelector('main')
+let clickCounter =0
+
+clicks.addEventListener("click", function(){
+    clickCounter += 1
+    console.log(clickCounter)
+    document.querySelector("#click-counter").textContent = clickCounter
+})
+
+//EX07 
+let button = document.querySelector('button')
+let buttonClicks = 0
+
+button.addEventListener("click", function(){
+    buttonClicks +=1
+    if(buttonClicks > 0){
+        button.disabled= true 
+    }
+    
+})
+
+//EX08 
+let svtLink = document.querySelector('#link-to-svt')
+
+if (window.addEventListener){
+    document.addEventListener('click', function (element){ //returns element on click
+        if(element.target.id === svtLink.id){
+            element.preventDefault(); //Prevents default behavior
+        }
+    })
+}
+
+//EX09 
+document.querySelector("img[src]").src = "https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80" 
+                                          
+
+
+
+console.log('js loaded!')
